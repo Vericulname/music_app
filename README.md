@@ -1,3 +1,4 @@
 # music_app
 
-A new Flutter project.
+ứng dụng nghe nhạc đơn giản
+
