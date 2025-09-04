@@ -25,28 +25,32 @@ class TrackModel {
 
 class Track {
   List<Artist> artists;
+  int durationMs;
   String name;
-  String type;
+  String previewUrl;
   String uri;
 
   Track({
     required this.artists,
+    required this.durationMs,
     required this.name,
-    required this.type,
+    required this.previewUrl,
     required this.uri,
   });
 
   factory Track.fromJson(Map<String, dynamic> json) => Track(
     artists: List<Artist>.from(json["artists"].map((x) => Artist.fromJson(x))),
+    durationMs: json["duration_ms"],
     name: json["name"],
-    type: json["type"],
+    previewUrl: json["preview_url"],
     uri: json["uri"],
   );
 
   Map<String, dynamic> toJson() => {
     "artists": List<dynamic>.from(artists.map((x) => x.toJson())),
+    "duration_ms": durationMs,
     "name": name,
-    "type": type,
+    "preview_url": previewUrl,
     "uri": uri,
   };
 }
