@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_app/bloc/app/track_cubit.dart';
 import 'package:music_app/presentation/homeScreen.dart';
-import 'package:music_app/presentation/menu.dart';
+// import 'package:music_app/presentation/menu.dart';
 
 class Approute {
   Route onGenerateRoute(RouteSettings settings) {
@@ -13,10 +13,10 @@ class Approute {
           builder: (_) => HomeScreen(color: Colors.green),
         );
 
-      case '/menu':
-        return MaterialPageRoute(
-          builder: (_) => MenuScreen(color: Colors.purple),
-        );
+      // case '/menu':
+      //   return MaterialPageRoute(
+      //     builder: (_) => MenuScreen(color: Colors.purple),
+      //   );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(body: Center(child: Text("no route"))),

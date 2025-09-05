@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:music_app/presentation/menu.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});

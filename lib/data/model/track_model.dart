@@ -26,74 +26,43 @@ class TrackModel {
 class Track {
   List<Artist> artists;
   int durationMs;
+  String id;
   String name;
   String previewUrl;
-  String uri;
 
   Track({
     required this.artists,
     required this.durationMs,
+    required this.id,
     required this.name,
     required this.previewUrl,
-    required this.uri,
   });
 
   factory Track.fromJson(Map<String, dynamic> json) => Track(
     artists: List<Artist>.from(json["artists"].map((x) => Artist.fromJson(x))),
     durationMs: json["duration_ms"],
+    id: json["id"],
     name: json["name"],
     previewUrl: json["preview_url"],
-    uri: json["uri"],
   );
 
   Map<String, dynamic> toJson() => {
     "artists": List<dynamic>.from(artists.map((x) => x.toJson())),
     "duration_ms": durationMs,
+    "id": id,
     "name": name,
     "preview_url": previewUrl,
-    "uri": uri,
   };
 }
 
 class Artist {
-  ExternalUrls externalUrls;
   String id;
   String name;
-  String type;
-  String uri;
 
-  Artist({
-    required this.externalUrls,
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.uri,
-  });
+  Artist({required this.id, required this.name});
 
-  factory Artist.fromJson(Map<String, dynamic> json) => Artist(
-    externalUrls: ExternalUrls.fromJson(json["external_urls"]),
-    id: json["id"],
-    name: json["name"],
-    type: json["type"],
-    uri: json["uri"],
-  );
+  factory Artist.fromJson(Map<String, dynamic> json) =>
+      Artist(id: json["id"], name: json["name"]);
 
-  Map<String, dynamic> toJson() => {
-    "external_urls": externalUrls.toJson(),
-    "id": id,
-    "name": name,
-    "type": type,
-    "uri": uri,
-  };
-}
-
-class ExternalUrls {
-  String spotify;
-
-  ExternalUrls({required this.spotify});
-
-  factory ExternalUrls.fromJson(Map<String, dynamic> json) =>
-      ExternalUrls(spotify: json["spotify"]);
-
-  Map<String, dynamic> toJson() => {"spotify": spotify};
+  Map<String, dynamic> toJson() => {"id": id, "name": name};
 }
